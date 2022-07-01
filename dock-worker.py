@@ -23,17 +23,19 @@ def load(repository, data2Load, username, password, registry: str="docker.io"):
     
     shutil.copyfile("./" + data2Load, tmpDirName + "/" + data2Load)
 
-    print("building the image")
+    #print("building the image")
     buildResponse = dockWorker.images.build(path=tmpDirName, tag=repo)
-    print(buildResponse)
+    #print(buildResponse)
 
-    print("listing the images")
+    #print("listing the images")
     dockWorker.images.list()
 
-    print("Pushing the image")
+    #print("Pushing the image")
     pushResponse = dockWorker.images.push(repository)
 
-    print(pushResponse)
+    #print(pushResponse)
+
+    # need to remove the files and directory here depending on the red team's objectives
 
     return 0
 
@@ -44,7 +46,7 @@ def unload(repository, username, password, registry: str="docker.io"):
     shiftCheckIn = dockWorker.login(username, password, registry)
 
     dataId = dockWorker.images.pull(repository)
-    print(dataId)
+    #print(dataId)
 
     dataContainer = dockWorker.containers.run(dataId, detach=True)
     
