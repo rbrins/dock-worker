@@ -7,9 +7,12 @@ import shutil
 
 def load(repository, data2Load, username, password, registry: str="docker.io"):
 
-    dockWorker = docker.DockerClient(base_url='unix:///var/run/docker.sock/')
+    try:
+        dockWorker = docker.DockerClient(base_url='unix:///var/run/docker.sock/')
+    except:
+        print("Could not connect to /var/run/docker.sock/ most likely don't have permissions to use, easy not opsec fix is `sudo chmod 666 /var/run/docker.sock`")
 
-    shiftCheckIn = dockWorker.login(username, password, registry)
+    shiftCheckIn = dockWorker.login(username, password, registry=registry)
 
     tmpDirName = "./" + str(time.time())
     os.mkdir(tmpDirName)
@@ -43,7 +46,7 @@ def unload(repository, username, password, registry: str="docker.io"):
 
     dockWorker = docker.DockerClient(base_url='unix:///var/run/docker.sock/')
 
-    shiftCheckIn = dockWorker.login(username, password, registry)
+    shiftCheckIn = dockWorker.login(username, password, registry=registry)
 
     dataId = dockWorker.images.pull(repository)
     #print(dataId)
