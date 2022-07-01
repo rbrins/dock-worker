@@ -1,6 +1,6 @@
 # Dock Worker
 
-See post at dc864 that describes the proof of concept.
+See [post at dc864](https://www.dc864.org/2022/07/exfiltrating-information-with-docker/) that describes the proof of concept.
 
 Idea is to use docker hub as a repository to exfiltrate data, using containers. This could be epsecially useful in a devops environment that relies on docker. 
 
