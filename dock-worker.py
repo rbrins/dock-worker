@@ -23,8 +23,7 @@ import os
 import time
 import shutil
 
-ascii_art_intro = 
-'''
+ascii_art_intro = '''\n
 
            __                |
           // \\              |
