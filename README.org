@@ -11,10 +11,11 @@ Note: this is strictly a Proof-of-concept and has not been seen in the wild to m
 
 * Future Development
 While this started out as a python proof-of-concept for a MITRE ATT&CK specific sub-technique, I'm looking at making this a more robust tool for exfiltration. 
-- Considering refactoring this to a Golang base since [[https://pkg.go.dev/github.com/docker/docker/client#section-readme][Go has an official SDK for Docker]].
-- Adding other exfiltration channels and techniques to selection
-- Adding encryption and encoding of data by default byt malleable
+** WONT DO +Weigh pros/cons to refactoring to Golang or using HTTP api from something like Nim+
+With the recent controversies around Golang and google potentially adding telemetry, No to Go; just not within my risk tolerance to also need to keep up with whether Google adds it to Golang or not. Would rather use a project this isn't considered a worry.
 
+** TODO Add encryption of data being exfiltrated as default option
+** TODO Add other exfiltration channels and techniques instead of just exfil through code repo
 
 * Resources
 - [[https://docs.docker.com/engine/api/sdk/][Docker SDK information]]
